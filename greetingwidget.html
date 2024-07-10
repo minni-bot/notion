@@ -157,20 +157,23 @@ body{
     var dayOfWeek = weekday[today.getDay()];
     var date = dayOfWeek ;
     var birthday = new Date(today.getFullYear(), 7, 10);
+    var xmas = new Date(today.getFullYear(), 12, 25);
 
 
     var greet;
 
     if (hrs >= 5 && hrs <= 12)
         greet = 'Good morning, Mel  ';
-    else if (!(today = birthday) && hrs >= 12 && hrs <= 17)
+    else if (!(today = birthday || xmas) && hrs >= 12 && hrs <= 17)
         greet = 'Good afternoon, Mel  ';
-    else if (!(today = birthday) && hrs >= 17 && hrs <= 23)
+    else if (!(today = birthday || xmas) && hrs >= 17 && hrs <= 23)
         greet = 'Good evening, Mel  ';
-    else if (!(today = birthday) && hrs >= 23 && hrs <= 5)
+    else if (!(today = birthday || xmas) && hrs >= 23 && hrs <= 5)
         greet = 'Hello~  ';
     else if (today = birthday && hrs >= 1 && hrs <= 24)
         greet = 'Happy Birthday 🥳  ';
+    else if (today = xmas && hrs >= 1 && hrs <= 24)
+        greet = 'Merry Christmas 🎄  ';
 
     document.getElementById('lbl').innerHTML =
         greet+=`<div id="date"> Today is ${date}</div>`;
