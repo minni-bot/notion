@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Quotes Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+  body (
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+)
+
+.quote-container (
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+)
+
+.quote-box (
+  text-align: center;
+  background: linear-gradient(135deg, #d5d5d5, #c9c9c9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+)
+
+.quote-text (
+  font-size: 24px;
+  margin-bottom: 20px;
+)
+
+.new-quote (
+  display: block;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px 20px;
+  background: #03a9f4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background 0.3s;
+)
+
+.new-quote:hover (
+  background: #0288d1;
+)
+</style>
+<body>
+  <div class="quote-container">
+    <div class="quote-box">
+      <p class="quote-text">“Quote will appear here”</p>
+      <button class="new-quote">New Quote</button>
+    </div>
+  </div>
+  <script>
+    const quoteText = document.querySelector(".quote-text");
+    const newQuoteBtn = document.querySelector(".new-quote");
+    
+    const quotes = [
+      "“The only limit to our realization of tomorrow is our doubts of today.” – Franklin D. Roosevelt",
+      "“Do not wait to strike till the iron is hot; but make it hot by striking.” – William Butler Yeats",
+      "“The way to get started is to quit talking and begin doing.” – Walt Disney",
+      "“Whether you think you can or think you can’t, you’re right.” – Henry Ford",
+      "“Success is not final, failure is not fatal: It is the courage to continue that counts.” – Winston Churchill"
+    ];
+    
+    const getRandomQuote = () => (
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      return quotes[randomIndex];
+    );
+    
+    newQuoteBtn.addEventListener("click", () => (
+      quoteText.textContent = getRandomQuote();
+    ));
+  </script>
+</body>
+</html>
