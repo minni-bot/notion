@@ -159,12 +159,14 @@ body{
 
     var greet;
 
-    if (hrs < 12)
+    if (hrs >= 5 && hrs <= 12)
         greet = 'Good morning, Mel  ';
     else if (hrs >= 12 && hrs <= 17)
         greet = 'Good afternoon, Mel  ';
-    else if (hrs >= 17 && hrs <= 24)
+    else if (hrs >= 17 && hrs <= 23)
         greet = 'Good evening, Mel  ';
+    else if (hrs >= 23 && hrs <= 5)
+        greet = 'Hello~  ';
 
     document.getElementById('lbl').innerHTML =
         greet+=`<div id="date"> Today is ${date}</div>`;
