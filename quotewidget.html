@@ -1,84 +1,87 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Random Quotes Generator</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote</title>
+
+    <style>
+
+        .widget {
+            padding: 5px 5px ;
+            color: #000000;
+            text-align: center;
+                max-width: 95%;
+            margin: auto;
+            font-variant-caps: petite-caps;
+            font-size: 2em;
+
+        }
+
+        div {
+             width: 95%;
+             min-height: 100px;
+
+            background:
+                linear-gradient(to right, black 4px, transparent 4px) 0 0,
+                linear-gradient(to right, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 100%,
+                linear-gradient(to bottom, black 4px, transparent 4px) 0 0,
+                linear-gradient(to bottom, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to top, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to top, black 4px, transparent 4px) 100% 100%;
+
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+}
+
+     
+    </style>
 </head>
-<style>
-  body (
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  font-family: Arial, sans-serif;
-)
-
-.quote-container (
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-)
-
-.quote-box (
-  text-align: center;
-  background: linear-gradient(135deg, #d5d5d5, #c9c9c9);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-)
-
-.quote-text (
-  font-size: 24px;
-  margin-bottom: 20px;
-)
-
-.new-quote (
-  display: block;
-  cursor: pointer;
-  font-size: 20px;
-  padding: 10px 20px;
-  background: #03a9f4;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  transition: background 0.3s;
-)
-
-.new-quote:hover (
-  background: #0288d1;
-)
-</style>
 <body>
-  <div class="quote-container">
-    <div class="quote-box">
-      <p class="quote-text">“Quote will appear here”</p>
-      <button class="new-quote">New Quote</button>
-    </div>
-  </div>
-  <script>
-    const quoteText = document.querySelector(".quote-text");
-    const newQuoteBtn = document.querySelector(".new-quote");
-    
-    const quotes = [
-      "“The only limit to our realization of tomorrow is our doubts of today.” – Franklin D. Roosevelt",
-      "“Do not wait to strike till the iron is hot; but make it hot by striking.” – William Butler Yeats",
-      "“The way to get started is to quit talking and begin doing.” – Walt Disney",
-      "“Whether you think you can or think you can’t, you’re right.” – Henry Ford",
-      "“Success is not final, failure is not fatal: It is the courage to continue that counts.” – Winston Churchill"
-    ];
-    
-    const getRandomQuote = () => (
-      const randomIndex = Math.floor(Math.random() * quotes.length);
-      return quotes[randomIndex];
-    );
-    
-    newQuoteBtn.addEventListener("click", () => (
-      quoteText.textContent = getRandomQuote();
-    ));
-  </script>
+
+    <div class="widget" id="widget"></div>
+
+
+<script>
+
+quotes=[
+"Learning, like success, is anything but a linear process",
+"I am in competition with no one. I have no desire to play the game of being better than anyone. I am simply trying to be better than the person I was yesterday.",
+"If you want to be interesting, you have to be interested.",
+"It's supposed to be hard. If it were easy, everyone would do it.",
+"Don’t worry if you’re not where you want to be yet. Great things take time. ",
+"If it's important you'll find a way. If it's not, you'll find an excuse.",
+"Most people overestimate what they can do in one year and underestimate what they can do in ten years.",
+"A goal without a plan is just a wish.",
+"change your 24 hours and you'll change your life",
+"Stop thinking you are not qualified, not fit, or not experienced enough,",
+"Growth takes place when you start doing stuff you are not qualified to do.",
+"Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind.",
+"Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.",
+];
+
+const INTERVAL = 86400000;
+
+function dispalyQuote(){
+
+    document.getElementById('widget').innerHTML =quotes[0];
+    quotes.forEach((quote, i) => {
+        setTimeout(() => {
+            document.getElementById('widget').innerHTML =quote;
+        }, i * INTERVAL);  
+    });
+    }
+
+    function dispalyWidget() {
+        dispalyQuote();
+        setTimeout(dispalyWidget, quotes.length*INTERVAL);
+    }
+    dispalyWidget()
+
+</script>
+
 </body>
 </html>
