@@ -163,13 +163,13 @@ body{
 
     var greet;
 
-    if (hrs >= 5 && hrs <= 12)
+    if (hrs >= 5 && hrs <= 11)
         greet = 'Good morning, Mel  ';
-    else if ((today != birthday || xmas || newyears) && hrs >= 12 && hrs <= 17)
+    else if ((today != birthday || xmas || newyears) && hrs >= 12 && hrs <= 16)
         greet = 'Good afternoon, Mel  ';
     else if ((today != birthday || xmas || newyears) && hrs >= 17 && hrs <= 23)
         greet = 'Good evening, Mel  ';
-    else if ((today != birthday || xmas || newyears) && hrs >= 23 && hrs <= 5)
+    else if ((today != birthday || xmas || newyears) && hrs >= 24 && hrs <= 4)
         greet = 'Hello~  ';
     else if (today = birthday && hrs >= 12 && hrs <= 24)
         greet = 'Happy Birthday 🥳  ';
