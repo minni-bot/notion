@@ -45,7 +45,6 @@
 <script>
 
 quotes=[
-"Life is too short to think you're unlovable because someone didn't know how to love you.",
 "Go for it, because missed opportunites hurt much more than rejections.",
 "There is a past version of you that is so proud of how far you have come.",
 "Kindness is not flirting.%0D%0AAttention is not love.%0D%0ASilence is not anger.%0D%0AAnd tears are not a weakness.",
@@ -62,6 +61,7 @@ quotes=[
 "Sometimes you expect a lot from someone because you'd that that much for them.",
 "If we don't tell people how we feel, how will they know?",
 "Don't be intimidated by what you don't know. That can be your greatest strength and ensure that you do things differently from everyone else.",
+"Life is too short to think you're unlovable because someone didn't know how to love you.",
 ];
 
 const INTERVAL = 72000000;
@@ -78,7 +78,7 @@ function displayQuote(){
 
     function displayWidget() {
         displayQuote();
-        setTimeout(dispalyWidget, quotes.length*INTERVAL);
+        setTimeout(displayWidget, quotes.length*INTERVAL);
     }
     displayWidget()
 
